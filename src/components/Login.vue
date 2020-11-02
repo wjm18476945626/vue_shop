@@ -29,7 +29,7 @@ export default {
         username: 'admin',
         password: '123456'
       },
-      //表单的认证
+      //表单的认证规则
       lgrules: {
         username: [
           { required: true, message: '请输入登录账号', trigger: 'blur' },
@@ -53,7 +53,7 @@ export default {
         const { data: result } = await this.$http.post('login', this.lgfrom)
         if (result.meta.status !== 200) return this.$message.error('登录失败！')
         this.$message.success('登录成功！')
-        console.log(result)
+        // console.log(result)
         // 将登录成功之后的token，保存到客户端的sessionStorage 
         window.sessionStorage.setItem('token', result.data.token)
         //通过编译后，跳转到后台主页 路由地址是 /home
